@@ -1,6 +1,14 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
+export async function generateStaticParams() {
+  const allPosts = await getAllPosts(false);
+
+  return allPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export default function Home() {
   return (
     <main className={styles.main}>
