@@ -1,0 +1,58 @@
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  column-gap: 64px;
+  row-gap: 32px;
+  padding: 64px;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image-wrapper {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 24px;
+}
+
+.content__title {
+  font-size: 96px;
+}
+
+.content__copy {
+  line-height: 1.5;
+  font-size: 24px;
+}
+
+.chapters {
+  text-align: center;
+  grid-column: span 2;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 32px;
+}
+
+.chapters h2 {
+  font-size: 48px;
+}
+
+.chapters ul {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 32px;
+  justify-content: center;
+}
+
+.chapters ul li {
+  flex-basis: 192px;
+}

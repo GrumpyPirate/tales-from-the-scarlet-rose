@@ -10,13 +10,19 @@ export default config({
       slugField: 'title',
       path: 'src/content/stories/*',
       format: {
-        contentField: 'summary'
+        contentField: 'summary',
       },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         summary: fields.markdoc({ label: 'Summary' }),
         image: fields.image({
           label: 'Cover image for the story',
+          directory: './public/story-images',
+          publicPath: '/story-images',
+        }),
+        isOneShot: fields.checkbox({
+          label: 'Is this a short, 1-chapter story?',
+          defaultValue: false,
         }),
         chapters: fields.array(
           fields.relationship({
@@ -26,7 +32,7 @@ export default config({
           {
             label: 'Chapters',
             itemLabel: (props) => props.value as string,
-          }
+          },
         ),
       },
     }),
@@ -41,14 +47,16 @@ export default config({
         title: fields.slug({ name: { label: 'Title' } }),
         summary: fields.markdoc({ label: 'Summary' }),
         image: fields.image({
-          label: 'Cover image for the chapter',
+          label: 'Cover image for the story chapter',
+          directory: './public/chapter-images',
+          publicPath: '/chapter-images',
         }),
         pages: fields.array(
           fields.relationship({
             label: 'Pages',
             collection: 'pages',
           }),
-          { label: 'Pages' }
+          { label: 'Pages' },
         ),
       },
     }),
@@ -63,6 +71,8 @@ export default config({
         slug: fields.slug({ name: { label: 'Page Slug' } }),
         image: fields.image({
           label: 'Cover image for the page',
+          directory: './public/page-images',
+          publicPath: '/page-images',
         }),
         copy: fields.markdoc({
           label: 'Page copy',
