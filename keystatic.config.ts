@@ -10,13 +10,19 @@ export default config({
       slugField: 'title',
       path: 'src/content/stories/*',
       format: {
-        contentField: 'summary'
+        contentField: 'summary',
       },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         summary: fields.markdoc({ label: 'Summary' }),
         image: fields.image({
           label: 'Cover image for the story',
+          directory: './public/story-images',
+          publicPath: '/story-images',
+        }),
+        isOneShot: fields.checkbox({
+          label: 'Is this a short, 1-chapter story?',
+          defaultValue: false,
         }),
         chapters: fields.array(
           fields.relationship({
@@ -26,7 +32,7 @@ export default config({
           {
             label: 'Chapters',
             itemLabel: (props) => props.value as string,
-          }
+          },
         ),
       },
     }),
@@ -48,7 +54,7 @@ export default config({
             label: 'Pages',
             collection: 'pages',
           }),
-          { label: 'Pages' }
+          { label: 'Pages' },
         ),
       },
     }),

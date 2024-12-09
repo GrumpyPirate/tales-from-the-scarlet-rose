@@ -1,0 +1,24 @@
+ffmpeg \
+-i /Users/stephanie.cobbold/Desktop/Dev/personal/tales-from-the-scarlet-rose/public/videos/fire.mp4 \
+-c:v libx264 \
+-preset veryslow \
+-crf 25 \
+-vf scale=960:540 \
+-an \
+-t 00:00:10 \
+-tune fastdecode \
+/Users/stephanie.cobbold/Desktop/Dev/personal/tales-from-the-scarlet-rose/public/videos/fire-web.mp4
+
+
+ffmpeg \
+-i /Users/stephanie.cobbold/Desktop/Dev/personal/tales-from-the-scarlet-rose/public/videos/fire.mp4 \
+-c:v libvpx-vp9 \
+-b:v 0 \
+-crf 33 \
+-vf scale=960:540 \
+-an \
+-t 00:00:10 \
+/Users/stephanie.cobbold/Desktop/Dev/personal/tales-from-the-scarlet-rose/public/videos/fire-web.webm
+
+960
+540
