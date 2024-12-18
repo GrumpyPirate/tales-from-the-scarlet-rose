@@ -47,7 +47,9 @@ export default config({
         title: fields.slug({ name: { label: 'Title' } }),
         summary: fields.markdoc({ label: 'Summary' }),
         image: fields.image({
-          label: 'Cover image for the chapter',
+          label: 'Cover image for the story chapter',
+          directory: './public/chapter-images',
+          publicPath: '/chapter-images',
         }),
         pages: fields.array(
           fields.relationship({
@@ -69,6 +71,8 @@ export default config({
         slug: fields.slug({ name: { label: 'Page Slug' } }),
         image: fields.image({
           label: 'Cover image for the page',
+          directory: './public/page-images',
+          publicPath: '/page-images',
         }),
         copy: fields.markdoc({
           label: 'Page copy',

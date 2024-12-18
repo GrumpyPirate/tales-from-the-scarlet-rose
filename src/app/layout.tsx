@@ -5,6 +5,7 @@ import 'reset-css';
 import 'sanitize.css';
 
 import './globals.css';
+import classNames from './layout.module.css';
 
 const headingFont = Crimson_Pro({
   weight: '400',
@@ -24,10 +25,19 @@ export const metadata: Metadata = {
   title: 'Tales from the Scarlet Rose',
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${bodyFont.variable} ${headingFont.variable}`}>{children}</body>
+      <body className={`${bodyFont.variable} ${headingFont.variable}`}>
+        <video className={classNames['bg-video']} autoPlay muted loop>
+          <source src="/videos/fire-web.webm" type="video/webm" />
+          <source src="/videos/fire-web.mp4" type="video/mp4" />
+        </video>
+        <div className={classNames['overlay']} role="presentation" />
+        {children}
+      </body>
     </html>
   );
 }

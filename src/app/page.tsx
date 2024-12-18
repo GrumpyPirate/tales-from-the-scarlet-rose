@@ -13,11 +13,6 @@ export default async function Page() {
 
   return (
     <>
-      <video className={classNames['bg-video']} autoPlay muted loop>
-        <source src="/videos/fire-web.webm" type="video/webm" />
-        <source src="/videos/fire-web.mp4" type="video/mp4" />
-      </video>
-      <div className={classNames['overlay']} role="presentation" />
       <div className={classNames['content']}>
         <h1 className={classNames['content__site-title']}>
           Tales from
