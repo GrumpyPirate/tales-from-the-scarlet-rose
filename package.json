@@ -6,7 +6,9 @@
     "dev": "next dev --port 7777",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
   },
   "dependencies": {
     "@keystatic/core": "^0.5.42",
@@ -17,10 +19,11 @@
     "react": "^18",
     "react-dom": "^18",
     "reset-css": "^5.0.2",
-    "rpg-awesome": "^0.2.0",
     "sanitize.css": "^13.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -29,6 +32,7 @@
     "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.7",
     "prettier": "^3.4.2",
     "stylelint": "^16.12.0",
     "stylelint-config-standard": "^36.0.1",
