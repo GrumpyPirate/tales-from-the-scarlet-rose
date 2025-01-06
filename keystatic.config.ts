@@ -40,42 +40,30 @@ export default config({
       label: 'Chapters',
       slugField: 'title',
       path: 'src/content/chapters/*',
+      entryLayout: 'content',
       format: {
-        contentField: 'summary',
+        contentField: 'content',
       },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
-        summary: fields.markdoc({ label: 'Summary' }),
-        image: fields.image({
+        coverImage: fields.image({
           label: 'Cover image for the story chapter',
-          directory: './public/chapter-images',
-          publicPath: '/chapter-images',
+          directory: './public/chapter-cover-images',
+          publicPath: '/chapter-cover-images',
         }),
-        pages: fields.array(
-          fields.relationship({
-            label: 'Pages',
-            collection: 'pages',
+        pageImages: fields.array(
+          fields.image({
+            label: 'Page image',
+            directory: './public/chapter-page-images',
+            publicPath: '/chapter-page-images',
           }),
-          { label: 'Pages' },
+          {
+            label: 'Page Images',
+            itemLabel: (props) => props.value?.filename as string,
+          },
         ),
-      },
-    }),
-    pages: collection({
-      label: 'Pages',
-      slugField: 'slug',
-      path: 'src/content/pages/*',
-      format: {
-        contentField: 'copy',
-      },
-      schema: {
-        slug: fields.slug({ name: { label: 'Page Slug' } }),
-        image: fields.image({
-          label: 'Cover image for the page',
-          directory: './public/page-images',
-          publicPath: '/page-images',
-        }),
-        copy: fields.markdoc({
-          label: 'Page copy',
+        content: fields.markdoc({
+          label: 'Chapter content',
         }),
       },
     }),

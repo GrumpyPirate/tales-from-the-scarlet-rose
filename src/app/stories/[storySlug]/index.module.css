@@ -17,6 +17,7 @@
   padding-bottom: 56.25%;
   border-radius: var(--border-radius);
   overflow: hidden;
+  box-shadow: 0 0 64px 0 rgba(0, 0, 0, 0.6);
 }
 
 .content {
@@ -27,6 +28,7 @@
 
 .content__title {
   font-size: 96px;
+  line-height: 1;
 }
 
 .content__copy {

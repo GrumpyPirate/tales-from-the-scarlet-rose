@@ -1,10 +1,10 @@
 import { createReader } from '@keystatic/core/reader';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import keystaticConfig from '../../../../keystatic.config';
 
 import classNames from './index.module.css';
-import Image from 'next/image';
-import Link from 'next/link';
 
 const reader = createReader(process.cwd(), keystaticConfig);
 
@@ -27,7 +27,7 @@ export default async function StoryChapterListItem({
       className={classNames['item']}
     >
       <div className={classNames['image']}>
-        <Image src={chapter.image as string} alt="" fill />
+        <Image src={chapter.coverImage as string} alt="" fill />
       </div>
       <h3 className={classNames['title']}>{chapter.title}</h3>
     </Link>

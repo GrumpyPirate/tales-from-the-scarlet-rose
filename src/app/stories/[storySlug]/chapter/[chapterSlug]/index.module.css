@@ -1,0 +1,9 @@
+.page {
+  position: absolute;
+  inset: 0;
+}
+
+.page__navigation {
+  position: absolute;
+  inset: auto 0 32px;
+}

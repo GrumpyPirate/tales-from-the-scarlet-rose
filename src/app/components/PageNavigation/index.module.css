@@ -1,0 +1,46 @@
+.nav {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 16px;
+  justify-content: center;
+  z-index: 1;
+}
+
+.nav__button {
+  background-image: none;
+  background-color: var(--background);
+  font-family: var(--body-font);
+  font-weight: bolder;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-variant: small-caps;
+  color: var(--foreground-darken-25);
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1em;
+  transition-duration: 0.2s;
+  transition-property: color, background-color;
+}
+
+.nav__button > * {
+  fill: currentColor;
+  display: block;
+}
+
+.nav__button:not(:disabled):hover,
+.nav__button:not(:disabled):focus-visible {
+  background-color: var(--background-lighten-10);
+  color: var(--foreground);
+  transition-duration: 0s;
+}
+
+.nav__button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}

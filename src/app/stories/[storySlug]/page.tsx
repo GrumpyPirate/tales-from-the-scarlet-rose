@@ -12,10 +12,16 @@ const reader = createReader(process.cwd(), keystaticConfig);
 
 import classNames from './index.module.css';
 
+export async function generateStaticParams() {
+  const slugs = await reader.collections.stories.list();
+
+  return slugs.map((storySlug) => ({ storySlug }));
+}
+
 export default async function Page({
   params,
 }: {
-  params: { storySlug: string };
+  params: Promise<{ storySlug: string }>;
 }) {
   const { storySlug } = await params;
   const story = await reader.collections.stories.read(storySlug);

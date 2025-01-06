@@ -1,0 +1,35 @@
+.nav {
+  --nav-y-padding: 12px;
+  --nav-content-height: calc(var(--nav-height) - calc(var(--nav-y-padding) * 2));
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  height: var(--nav-height);
+  width: 100%;
+  position: fixed;
+  inset: 0 0 auto;
+  background-color: var(--background);
+  z-index: 99;
+}
+
+.nav__logo {
+  position: relative;
+  text-decoration: none;
+  font-size: 48px;
+  line-height: var(--nav-content-height);
+}
+
+.nav__logo img {
+  display: block;
+  width: auto;
+  height: var(--nav-content-height);
+}
+
+.nav a {
+  text-decoration: none;
+  color: inherit;
+  font-variant: small-caps;
+}

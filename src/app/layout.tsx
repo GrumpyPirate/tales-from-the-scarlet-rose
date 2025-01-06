@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Crimson_Pro, Crimson_Text } from 'next/font/google';
 
 import 'reset-css';
@@ -6,6 +5,9 @@ import 'sanitize.css';
 
 import './globals.css';
 import classNames from './layout.module.css';
+import Navigation from './components/Navigation';
+
+import type { Metadata } from 'next';
 
 const headingFont = Crimson_Pro({
   weight: '400',
@@ -27,7 +29,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={`${bodyFont.variable} ${headingFont.variable}`}>
@@ -36,7 +40,10 @@ export default function RootLayout({
           <source src="/videos/fire-web.mp4" type="video/mp4" />
         </video>
         <div className={classNames['overlay']} role="presentation" />
-        {children}
+        <div className={classNames['page']}>
+          <Navigation />
+          <div className={classNames['page__content']}>{children}</div>
+        </div>
       </body>
     </html>
   );

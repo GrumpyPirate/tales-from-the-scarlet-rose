@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import { type Entry } from '@keystatic/core/reader';
+import Image from 'next/image';
 
 import keystaticConfig from '../../../keystatic.config';
 
 import classNames from './index.module.css';
-import Image from 'next/image';
 
-export default function Component({
+export default function HomePageStoryItem({
   slug,
   story: storyEntry,
 }: {
